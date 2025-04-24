@@ -1,38 +1,64 @@
-# sv
+# SvelteKit Authentication Demo
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A clean and simple demo project showcasing authentication implementation using BetterAuth, Turso database, and SvelteKit with Svelte 5.
 
-## Creating a project
+## Tech Stack
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Frontend**: Svelte 5 + SvelteKit
+- **Authentication**: BetterAuth
+- **Database**: Turso
+- **Language**: TypeScript
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Project Structure
 
-# create a new project in my-app
-npx sv create my-app
+```text
+src/
+├── lib/
+│   ├── auth/         # Authentication related code
+│   ├── db/          # Database related code
+│   └── components/  # Reusable components
+├── routes/
+│   ├── auth/        # Authentication routes
+│   └── protected/   # Protected routes
+└── app.d.ts         # TypeScript declarations
 ```
 
-## Developing
+## Features
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- User registration and login
+- Password reset functionality
+- Protected routes
+- Session management
+- Form validation
+- Error handling
+- Responsive design
 
-```bash
-npm run dev
+## Development Status
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+See [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md) for detailed development phases and [CHECKLIST.md](./CHECKLIST.md) for current progress.
 
-## Building
+## Getting Started
 
-To create a production version of your app:
+1. Clone the repository
+2. Install dependencies:
 
-```bash
-npm run build
-```
+   ```bash
+   npm install
+   ```
 
-You can preview the production build with `npm run preview`.
+3. Set up environment variables (see `.env.example`)
+4. Start the development server:
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+   ```bash
+   npm run dev
+   ```
+
+## Documentation
+
+- [SvelteKit Documentation](https://kit.svelte.dev/docs)
+- [BetterAuth Documentation](https://www.better-auth.com/docs/installation)
+- [Turso Documentation](https://docs.turso.tech/sdk/ts/guides/sveltekit)
+
+## License
+
+MIT
