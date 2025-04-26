@@ -1,11 +1,17 @@
-import { defineConfig } from 'drizzle-kit';
+import type { Config } from "drizzle-kit";
+import * as dotenv from "dotenv";
+dotenv.config();
 
-if (!process.env.DATABASE_URL) throw new Error('DATABASE_URL is not set');
+const isLocal = process.env.DATABASE_URL?.includes("127.0.0.1") || process.env.DATABASE_URL?.includes("localhost");
 
-export default defineConfig({
-	schema: './src/lib/server/db/schema.ts',
-	dbCredentials: { url: process.env.DATABASE_URL },
+export default {
+	schema: "./src/lib/server/db/schema.ts",
+	out: "./drizzle",
+	dialect: "turso",
+	dbCredentials: {
+		url: process.env.DATABASE_URL as string,
+		...(isLocal ? {} : { authToken: process.env.DATABASE_AUTH_TOKEN as string })
+	},
 	verbose: true,
 	strict: true,
-	dialect: 'sqlite'
-});
+} satisfies Config;
